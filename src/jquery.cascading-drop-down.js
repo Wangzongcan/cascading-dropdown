@@ -392,9 +392,11 @@
 
                 settings.startCall(trigger, props);
 
+                var symbol = props.url.includes('?') ? '&' : '?';
+
                 $.ajax({
                     dataType: "json",
-                    url: props.url + '?' + formatQuery(props.selection),
+                    url: props.url + symbol + formatQuery(props.selection),
                     success: function (data) {
 
                         settings.endCall(trigger, props);
